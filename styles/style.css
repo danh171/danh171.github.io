@@ -378,6 +378,28 @@ a {
   color: var(--link-color);
 }
 
+code {
+  color: rgb(30 30 30);
+  background-color: rgb(248 248 248);
+  border-radius: 0.2rem;
+  padding: 0 0.2rem;
+  font-size: 95%;
+}
+
+pre {
+  background-color: rgb(248 248 248);
+  border: 0.05rem solid black;
+  border-radius: 0.2rem;
+}
+
+.code-css-selector {
+  color: rgb(178, 113, 28);
+}
+
+.code-css-property {
+  color: rgb(84, 159, 69);
+}
+
 .zen-dots-regular {
   font-family: "Zen Dots", serif;
   font-weight: 400;
