@@ -51,16 +51,16 @@
           <h2 class="post-heading">The Main Layout</h2>
           <p>As I was feeling a little rusty in the frontend design department, I chose to play it safe and go with a (very) minimal theme for the site. I kept the colour scheme basic with a white background, black text, and blue (<code style="color: #127dc5;">#127dc5</code> to be exact) links.</p>
 
-          <p>I decided to use CSS grid for developing the layout of the site. In the past, I've mainly gravitated towards flexbox, so I wanted to learn a bit more about grid, and gain some practical experience using it. I took a mobile-first approach when writing my CSS, having my default styles target smaller screen sizes, and setting a media query breakpoint at 768px to handle the tablet/desktop variant of the website. One of my aims was to keep the CSS from getting too convoluted, and I think that not getting bogged down in all the different possible breakpoints I could have gone with is helping with that.</p>
+          <p>I decided to use CSS grid for developing the layout of the site. In the past, I've mainly gravitated towards flexbox, so I wanted to learn a bit more about grid, and gain some practical experience using it. I took a mobile-first approach when writing my CSS, having smaller screen sizes in mind while writing my default styles, and setting a media query breakpoint at 768px to handle the tablet/desktop variant of the website. One of my aims was to keep the CSS from getting too convoluted, and I think that not getting bogged down in all the different possible breakpoints I could have gone with is helping with that.</p>
 
-          <p>On mobile, I have a grid of 4 rows corresponding to the header, nav, main content, and footer. On desktop, there are 3 rows and 3 columns. The first column is taken up by a sidebar nav, which I have set to <code><span class="code-css-property">position</span>: fixed;</code>. The second column holds the header, main content, and footer. I used a blank third column as a bit of a hack to centre the main content.</p>
+          <p>On mobile, I have a grid of 4 rows corresponding to the header, nav, main content, and footer. On desktop, there are 3 rows and 3 columns. The first column is taken up by a sidebar containing the nav, which I have set to <code><span class="code-css-property">position</span>: fixed;</code>. The second column holds the header, main content, and footer. I used a blank third column as a bit of a hack to centre the main content.</p>
 
           <!-- TODO: put image of wire frame of the layout here -->
 
-          <p>I used <a target="_blank" rel="noopener noreferrer" href="https://necolas.github.io/normalize.css/">Normalize.css</a> to fix some style inconsistencies across different browsers. I did consider using something like <a target="_blank" rel="noopener noreferrer" href="https://meyerweb.com/eric/tools/css/reset/">CSS Reset</a>, but I find it more of a hassle having to redeclare a lot of properties whose default styling I don't mind in the first place.</p>
+          <p>I used <a target="_blank" rel="noopener noreferrer" href="https://necolas.github.io/normalize.css/">Normalize.css</a> to fix some style inconsistencies across different browsers. I did consider using something like <a target="_blank" rel="noopener noreferrer" href="https://meyerweb.com/eric/tools/css/reset/">CSS Reset</a>, but I find it more hassle having to redeclare a lot of properties whose default styling I don't mind in the first place.</p>
 
           <h2 class="post-heading">Fonts and Sizing</h2>
-          <p>After a quick review of the myriad of different sizing units in CSS, I decided to use the <code>rem</code> as my main unit. In previous projects, I've chosen either <code>rem</code>, <code>em</code> or <code>px</code>. What swayed me in the end was this comprehensive <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/a/43131958">Stack Overflow answer</a> on the topic of units. I incorporated the following CSS suggested in the answer, that makes calculating <code>px</code>'s from <code>rem</code>'s, much handier:</p>
+          <p>After a quick review of the myriad of different sizing units in CSS, I settled on the <code>rem</code> as my main unit. In previous projects, I've chosen either <code>rem</code>, <code>em</code> or <code>px</code>. What swayed me in the end was this in depth <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/a/43131958">Stack Overflow answer</a> on the topic of units. I incorporated the following CSS (suggested in the answer), that makes calculating <code>px</code>'s from <code>rem</code>'s much handier:</p>
 
           <pre><code>
   <span class="code-css-selector">:root</span> {
@@ -72,12 +72,31 @@
   }
           </code></pre>
 
-          <p>I opted to increase the body's font size on mobile to 18px (1.8rem), as opposed to 16px (1.6rem), as I found this size offered a more pleasant reading experience. I used a couple of google fonts for the website. I went with <a target="_blank" rel="noopener noreferrer" href="https://fonts.google.com/specimen/Zen+Dots">Zen Dots</a> for the site's header, and <a target="_blank" rel="noopener noreferrer" href="https://fonts.google.com/specimen/Inter">Inter</a> for everything else.</p>
+          <p>I opted to increase the body's font size on mobile to 1.8rem (18px), as opposed to the default 1.6rem (16px), as I found this offered a more pleasant reading experience. I used a couple of google fonts for the website. I went with <a target="_blank" rel="noopener noreferrer" href="https://fonts.google.com/specimen/Zen+Dots">Zen Dots</a> for the site's header, and <a target="_blank" rel="noopener noreferrer" href="https://fonts.google.com/specimen/Inter">Inter</a> for everything else.</p>
 
           <h2 class="post-heading">The Homepage</h2>
-          <p>For the site's landing page, I wanted to have a brief "About Me" section. This just contains some personal info about my education and professional experience. The contents of this page are likely to change to reflect any updates in my professional experience.</p>
+          <p>For the site's landing page, I wanted to have a brief "About Me" section. This just contains some personal info about my education and professional experience. The contents of this page are likely to change to reflect any updates in my life that I feel are important enough to include there.</p>
 
-          <!-- TODO: put image of desktop version of homepage here -->
+          <picture>
+            <source media="(max-width: 767px)" srcset="../img/homepage-desktop-500w.png, ../img/homepage-desktop-1000w.png 2x" />
+            <source media="(min-width: 768px)" srcset="../img/homepage-desktop-1000w.png, ../img/homepage-desktop-2000w.png 2x" />
+            <img src="../img/homepage-desktop-2000w.png" alt="" aria-describedby="home-img-descr" />
+          </picture>
+          <p id="home-img-descr">A screenshot of the desktop version of this website's homepage</p>
+
+          <p>Implementing this page was extremely straightforward. I just set up the sections I had in mind for my grid layout (<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>), and wrote the required CSS to get everything positioned the way I wanted on mobile and desktop. That was the easy part. Most of my time was spent writing the actual content for the page (a pattern I begin to see forming as I write this post too).</p>
+
+          <h2 class="post-heading">A Touch of JavaScript</h2>
+          <p>One feature that I wanted for the site quite early on was to have the active link highlighted in the navbar. So if you're on the homepage the "About" link will be highlighted, and if you're on the blog list page, or any of the blog posts, the "Blog" link will be highlighted. I'm sure some combination of CSS selectors could probably be used to achieve the same thing, but I just went with some JavaScript to get the job done:</p>
+
+          <pre><code>
+  <span class="code-js-keyword">const</span> url = <span class="code-js-obj">document</span>.URL;
+  <span class="code-js-keyword">const</span> slug = url.<span class="code-js-method">slice</span>(url.<span class="code-js-method">indexOf</span>(<span class="code-js-string">"/"</span>, <span class="code-js-obj">8</span>)).<span class="code-js-method">startsWith</span>(<span class="code-js-string">"/blog/"</span>) ? <span class="code-js-string">"/blog/"</span> : <span class="code-js-string">"/"</span>;
+  <span class="code-js-keyword">const</span> currentLinks = <span class="code-js-obj">document</span>.<span class="code-js-method">querySelectorAll</span>(<span class="code-js-string">'a[href="'</span> + slug + <span class="code-js-string">'"]'</span>);
+  currentLinks.<span class="code-js-method">forEach</span>(link => link.className += <span class="code-js-string">" current-link"</span>);
+          </code></pre>
+
+          <p>Not too pretty, but it works well enough for now.</p>
         </article>
       </main>
       <footer class="site-footer">
